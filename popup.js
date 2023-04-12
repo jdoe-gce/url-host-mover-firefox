@@ -139,7 +139,11 @@ var emptyList = function(id){
     
     if(_current_group !== undefined){
         var el = document.getElementById('rules_title');
-        el.innerHTML = "Rules for <span class='label'>" + _current_group + "</span>";
+        el.textContent = "Rules for ";
+		var span = document.createElement('span');
+		span.className = 'label';
+		span.textContent = _current_group;
+		el.appendChild(span);
     }
 }
 
