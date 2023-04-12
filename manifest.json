@@ -8,10 +8,10 @@
 			"16": "img/um-logo-16.png",
 			"24": "img/um-logo-24.png",
 			"32": "img/um-logo-32.png"
-		},
-		"default_title": "URL Host Mover",
-		"default_popup": "popup.html"
+		}
 	},
+	"default_title": "URL Host Mover",
+	"default_popup": "popup.html",
 	"background": {
 		"service_worker": "background.js"
 	},
