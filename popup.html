@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+  <head>
+    <title>URL Host Mover</title>
+    <script src="popup.js"></script>
+	<style>
+		body {
+			background-color: #EFEFEF;
+		}
+
+		input[type="button"] {
+			background-color: #fff;
+			border: 1px solid #d5d9d9;
+			border-radius: 8px;
+			box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+			box-sizing: border-box;
+			color: #0f1111;
+			cursor: pointer;
+			font-family: "Amazon Ember",sans-serif;
+			font-size: 11px;
+			line-height: 20px;
+			padding: 0 5px 0px 5px;
+			margin: 0 0 2px 0;
+			position: relative;
+			text-align: center;
+			text-decoration: none;
+			user-select: none;
+			-webkit-user-select: none;
+			touch-action: manipulation;
+			vertical-align: middle;
+		}
+		
+		input[type="button"].main {
+			background-color: #708090;
+			color: white;
+		}
+		
+		input[type="button"]:hover {
+			background-color: #1E55B3;
+			color: white;
+		}
+
+		input[type="button"]:focus {
+			border-color: #008296;
+			box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+			outline: 0;
+		}
+		
+		input[type="text"]{
+			margin-right: 2px;
+			padding: 1px 2px 2px 2px;
+			background-color: #FFFFFF;
+			color: #000000;
+			border-bottom : 2px solid #1E55B3;
+			border-top    : 0px;
+			border-left   : 0px;
+			border-right  : 0px;
+			border-radius: 8px 8px 0px 0px;
+			font-family: "Amazon Ember",sans-serif;
+			text-shadow: 0px 0px 0px rgba(66,66,66,.75);
+		}
+		
+		input[type="text"]:focus {
+			outline:none;
+		}
+		
+		.scrollbar::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        .scrollbar::-webkit-scrollbar-track {
+            border-radius: 8px;
+            background-color: #e7e7e7;
+            border: 1px solid #cacaca;
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+        }
+        
+        .scrollbar::-webkit-scrollbar-thumb {
+            border-radius: 8px;
+            background-color: #1E55B3;
+        }
+		
+		.label {
+			padding: 1px 5px 1px 5px;
+			background-color: lightgray;
+			border-radius: 5px;
+		}
+	</style>
+  </head>
+  <body>
+	<h2 style="border-bottom: 1px solid lightgray;">Groups</h2>
+	<input type="button" id="group_add" value="Add group" style="font-size: 13px;font-weight: bold; width: 100%;" class="main" />
+	<div id="groups_list" style="height: 100px; overflow-y:auto; overflow-x:auto;" class="scrollbar"></div>
+	<h2 id="rules_title" style="border-bottom: 1px solid lightgray;">Rules</h2>
+	<div id="group_content" style="height: 150px; overflow-y:auto; overflow-x:hidden;" class="scrollbar"></div>
+  </body>
+</html>
