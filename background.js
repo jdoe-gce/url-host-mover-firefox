@@ -44,20 +44,22 @@ function goToNewURL(url){
 }
 
 browser.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-	browser.storage.sync.get("groups", function(items){
-		for(var k in items){
-			if(k === "groups"){
-				_groups = sortOnKeys(items[k]);
-				if ((changeInfo.url || tab.url) && _groups !== undefined) {
-					var url = changeInfo.url ? changeInfo.url : tab.url;
-					var res = goToNewURL(url);
+	if(changeInfo.status == "complete"){
+		browser.storage.sync.get("groups", function(items){
+			for(var k in items){
+				if(k === "groups"){
+					_groups = sortOnKeys(items[k]);
+					if ((changeInfo.url || tab.url) && _groups !== undefined) {
+						var url = changeInfo.url ? changeInfo.url : tab.url;
+						var res = goToNewURL(url);
+					}
+					if(res){
+						console.log("Redirect from '" + url + "' to '" + res + "'");
+						browser.tabs.update(tabId, { url: res });
+					}
+					break;
 				}
-				if(res){
-					console.log("Redirect from '" + url + "' to '" + res + "'");
-					browser.tabs.update(tabId, { url: res });
-				}
-				break;
 			}
-		}
-	});	
+		})
+	}
 });
